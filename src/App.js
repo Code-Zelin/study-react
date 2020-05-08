@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import ContentWrapper from "./pages/ContentWrapper";
+import LifeCompoent from "./pages/life";
+import CForm from "./pages/form/index";
+import StateTest from "./pages/state";
+import TestRedux from "./pages/redux";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+	// const [data, setData] = useState({ hits: [] });
+	// useEffect(() => {
+	// 	async function getData1() {
+	// 	const result = await axios("https://hn.algolia.com/api/v1/search?query=redux");
+	// 	setData(result.data);
+	// 	}
+	// 	getData1();
+	// }, []);
 
+	// const fatherRef = useRef();
+
+	// function handleClickChild() {
+	// 	console.log(fatherRef);
+	// 	if(fatherRef.current) {
+	// 		fatherRef.current.click();
+	// 	}
+	// }
+
+	return (
+		// <ul>
+		// 	{data.hits.map(item => (
+		// 		<li key={item.objectID}>
+		// 			<a href={item.url}>{item.title}</a>
+		// 		</li>
+		// 	))}
+		// </ul>
+		<div>
+			{/* <ContentWrapper ref={fatherRef} />
+
+			<button onClick={handleClickChild}>点我更新子孙组件</button> */}
+
+			{/* <LifeCompoent title="小bug" /> */}
+
+			{/* <CForm /> */}
+			{/* <StateTest /> */}
+			<TestRedux />
+		</div>
+	);
+}
 export default App;
