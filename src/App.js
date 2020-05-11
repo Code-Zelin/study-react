@@ -5,6 +5,9 @@ import CForm from "./pages/form/index";
 import StateTest from "./pages/state";
 import TestRedux from "./pages/redux";
 
+import { Provider } from "react-redux"
+import store from "./pages/redux/store"
+
 function App() {
 	// const [data, setData] = useState({ hits: [] });
 	// useEffect(() => {
@@ -32,7 +35,7 @@ function App() {
 		// 		</li>
 		// 	))}
 		// </ul>
-		<div>
+		<Provider store={store}>
 			{/* <ContentWrapper ref={fatherRef} />
 
 			<button onClick={handleClickChild}>点我更新子孙组件</button> */}
@@ -42,7 +45,7 @@ function App() {
 			{/* <CForm /> */}
 			{/* <StateTest /> */}
 			<TestRedux />
-		</div>
+		</Provider>
 	);
 }
 export default App;

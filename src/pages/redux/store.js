@@ -1,4 +1,6 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
 
 const reducer = function (state = 0, action) {
 	switch (action.type) {
@@ -11,4 +13,4 @@ const reducer = function (state = 0, action) {
 	}
 };
 
-export default createStore(reducer);
+export default createStore(reducer, applyMiddleware(logger, thunk));
