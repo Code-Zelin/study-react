@@ -19,6 +19,7 @@ export default class TestRedux extends Component {
 						store.dispatch((dispatch) => {
 							setTimeout(() => {
 								dispatch({ type: "add" });
+								dispatch({ type: "add" });
 							}, 1000);
 						})
 					}

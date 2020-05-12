@@ -1,6 +1,7 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import logger from "redux-logger";
+// import { createStore, applyMiddleware } from "redux";
+// import thunk from "redux-thunk";
+// import logger from "redux-logger";
+import { createStore, applyMiddleware, fake_logger, fake_thunk } from "../../fake/redux/redux"
 
 const reducer = function (state = 0, action) {
 	switch (action.type) {
@@ -13,4 +14,4 @@ const reducer = function (state = 0, action) {
 	}
 };
 
-export default createStore(reducer, applyMiddleware(logger, thunk));
+export default createStore(reducer, applyMiddleware(fake_logger, fake_thunk));
