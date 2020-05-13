@@ -1,23 +1,23 @@
 import React, { useRef } from "react";
-import ContentWrapper from "./pages/ContentWrapper";
-import LifeCompoent from "./pages/life";
-import CForm from "./pages/form/index";
-import StateTest from "./pages/state";
-import TestRedux from "./pages/redux";
 
-import { Provider } from "react-redux"
-import store from "./pages/redux/store"
+// 16.3之后的新版生命周期
+import LifeCompoent from "./pages/new-life/life";
+import CForm from "./pages/form/index";
+
+// 用于测试state的异步和同步问题
+import StateTest from "./pages/state";
+
+// 用于测试context
+import ContentWrapper from "./pages/context/ContentWrapper";
+
+// TestRedux和store可以调试自己做的redux
+import TestRedux from "./pages/redux";
+import store from "./pages/redux/store";
+
+// 自己动手做的react-redux
+import ReduxOut from "./pages/redux/out";
 
 function App() {
-	// const [data, setData] = useState({ hits: [] });
-	// useEffect(() => {
-	// 	async function getData1() {
-	// 	const result = await axios("https://hn.algolia.com/api/v1/search?query=redux");
-	// 	setData(result.data);
-	// 	}
-	// 	getData1();
-	// }, []);
-
 	// const fatherRef = useRef();
 
 	// function handleClickChild() {
@@ -28,24 +28,19 @@ function App() {
 	// }
 
 	return (
-		// <ul>
-		// 	{data.hits.map(item => (
-		// 		<li key={item.objectID}>
-		// 			<a href={item.url}>{item.title}</a>
-		// 		</li>
-		// 	))}
-		// </ul>
-		<Provider store={store}>
-			{/* <ContentWrapper ref={fatherRef} />
+		// <Provider store={store}>
+		// 	{/* <ContentWrapper />
 
-			<button onClick={handleClickChild}>点我更新子孙组件</button> */}
+		// 	<button onClick={handleClickChild}>点我更新子孙组件</button> */}
 
-			{/* <LifeCompoent title="小bug" /> */}
+		// 	{/* <LifeCompoent title="小bug" /> */}
 
-			{/* <CForm /> */}
-			{/* <StateTest /> */}
-			<TestRedux />
-		</Provider>
+		// 	{/* <CForm /> */}
+		// 	{/* <StateTest /> */}
+		// 	{/* <TestRedux /> */}
+			
+		// </Provider>
+		<ReduxOut />
 	);
 }
 export default App;

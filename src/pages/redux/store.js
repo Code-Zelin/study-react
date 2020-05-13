@@ -1,7 +1,7 @@
 // import { createStore, applyMiddleware } from "redux";
 // import thunk from "redux-thunk";
 // import logger from "redux-logger";
-import { createStore, applyMiddleware, fake_logger, fake_thunk } from "../../fake/redux/redux"
+import { createStore, applyMiddleware, fake_logger, fake_thunk } from "./fake/redux"
 
 const reducer = function (state = 0, action) {
 	switch (action.type) {
