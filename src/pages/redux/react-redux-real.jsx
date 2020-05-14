@@ -1,28 +1,30 @@
 import React, { Component } from "react";
-import { connect } from "./fake/react-redux";
+import { connect } from "react-redux";
 
-function getPageData(dispatch, getState) {
-	const requestNumber = Math.ceil(Math.random() * 10);
-	console.log(getState());
-	console.log(dispatch);
+
+function getPageData() {
+	const requestNumber = Math.ceil(Math.random() * 100)
 	return new Promise((resolve) => {
 		setTimeout(() => {
-			dispatch({
-				type: "add",
-				number: requestNumber,
-			});
-		}, 1000);
-	});
+			resolve(requestNumber)
+		}, 1000)
+	})
 }
 
 class TestReactReduxReal extends Component {
+	handleClick() {
+		getPageData().then((number) => {
+			this.props.asyncAdd(number)
+		})
+	}
+
 	render() {
 		return (
 			<div>
 				{this.props.number}
 				<button onClick={() => this.props.add()}>+</button>
 				<button onClick={() => this.props.minus()}>-</button>
-				<button onClick={() => this.props.asyncAdd()}>异步+</button>
+				<button onClick={() => this.handleClick()}>异步+</button>
 			</div>
 		);
 	}
@@ -46,27 +48,17 @@ export default connect(
 				type: "minus",
 			});
 		},
-		asyncAdd() {
+		asyncAdd(number) {
 			// dispatch((innerDispatch) => {
 			// 	innerDispatch({
 			// 		type: "add",
 			// 		number,
 			// 	});
 			// });
-
-			// dispatch({
-			// 	type: "add",
-			// 	number
-			// })
-
-			// getPageData().then((number) => {
-			// 	dispatch({
-			// 		type: "add",
-			// 		number,
-			// 	});
-			// });
-
-			dispatch(getPageData);
+			dispatch({
+				type: "add",
+				number
+			})
 		},
 	})
 )(TestReactReduxReal);
