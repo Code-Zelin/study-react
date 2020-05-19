@@ -16,6 +16,7 @@ import store from "./pages/redux/store";
 
 // 自己动手做的react-redux
 import ReduxOut from "./pages/redux/out";
+import IndexRouter from "./pages/router";
 
 function App() {
 	// const fatherRef = useRef();
@@ -40,7 +41,9 @@ function App() {
 		// 	{/* <TestRedux /> */}
 			
 		// </Provider>
-		<ReduxOut />
+		// <ReduxOut />
+
+		<IndexRouter />
 	);
 }
 export default App;
